@@ -38,7 +38,15 @@ const AddProduct = () => {
     <Box className={productContainer}>
       <Container>
         <Box>
-          <h2>Add A Product</h2>
+          <h2
+            style={{
+              fontFamily: "Genos",
+              fontSize: "40px",
+              textAlign: "center",
+            }}
+          >
+            Add A Product
+          </h2>
           <form className="booking-form" onSubmit={handleSubmit(onSubmit)}>
             <input
               className={input}

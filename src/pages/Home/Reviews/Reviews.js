@@ -3,6 +3,7 @@ import { BoltRounded } from "@mui/icons-material";
 import { Container, Grid, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import Review from "../Review/Review";
+import { makeStyles } from "@mui/styles";
 
 const Reviews = () => {
   const [reviews, setReviews] = useState([]);
@@ -12,18 +13,29 @@ const Reviews = () => {
       .then((res) => res.json())
       .then((data) => setReviews(data));
   }, []);
+
+  const useStyles = makeStyles({
+    reviewContainer: {
+      margin: "50px 0",
+    },
+    reviews: {
+      textAlign: "center",
+    },
+    title: {
+      fontFamily: "Genos",
+      fontSize: "45px",
+      color: "#EA001E",
+      textAlign: "center",
+      marginBottom: "50px",
+    },
+  });
+  const { reviewContainer, title } = useStyles();
+
   return (
-    <Box style={{ margin: "100px 0" }}>
+    <Box className={reviewContainer}>
       <Container>
-        <Typography
-          sx={{ marginBottom: 6, fontWeight: "bold" }}
-          gutterBottom
-          variant="h4"
-          component="div"
-        >
-          People Who Trust Us
-        </Typography>
-        <Grid container spacing={2}>
+        <h2 className={title}>People Who Trust Us</h2>
+        <Grid className={reviews} container spacing={2}>
           {reviews.map((review) => (
             <Review key={review.id} review={review}></Review>
           ))}

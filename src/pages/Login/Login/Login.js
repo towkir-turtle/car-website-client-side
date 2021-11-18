@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import {
   Alert,
   Button,
@@ -8,8 +9,8 @@ import {
 } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import { Box } from "@mui/system";
-import React, { useState } from "react";
 import { NavLink, useLocation, useHistory } from "react-router-dom";
+import { FaGoogle } from "react-icons/fa";
 import useAuth from "../../hooks/useAuth";
 
 const Login = () => {
@@ -48,41 +49,66 @@ const Login = () => {
     },
     field: {
       width: "100%",
-      marginBottom: "20px",
+    },
+    title: {
+      fontFamily: "Genos",
+      fontSize: "45px",
+      color: "#EA001E",
+      textAlign: "center",
+      marginBottom: "30px",
     },
   });
-  const { container, login, field } = useStyles();
+  const { container, login, title } = useStyles();
   return (
     <Box>
       <Container>
         <Box className={container}>
           <Box className={login}>
-            <Typography style={{ textAlign: "center" }} variant="body1">
-              Login
-            </Typography>
+            <h2 className={title}>Login</h2>
             <form onSubmit={handleLoginSubmit}>
               <TextField
-                className={field}
                 id="standard-basic"
                 label="Your Email"
                 name="email"
                 onChange={handleOnChange}
-                variant="standard"
+                style={{ width: "100%", marginBottom: "20px" }}
               />
               <TextField
-                className={field}
                 id="standard-basic"
                 type="password"
                 label="Your Password"
                 name="password"
                 onChange={handleOnChange}
-                variant="standard"
+                style={{ width: "100%", marginBottom: "20px" }}
               />
-              <Button className={field} variant="contained" type="submit">
+              <Button
+                style={{
+                  width: "100%",
+                  backgroundColor: "#EA001E",
+                  padding: "10px 0",
+                  fontSize: "16px",
+                  fontWeight: "500",
+                  color: "#fff",
+                }}
+                type="submit"
+              >
                 Login
               </Button>
-              <NavLink style={{ textDecoration: "none" }} to="/register">
-                <Button type="text" color="inherit">
+              <NavLink
+                style={{
+                  color: "#000",
+                  textDecoration: "none",
+                }}
+                to="/register"
+              >
+                <Button
+                  type="text"
+                  style={{
+                    textAlign: "center",
+                    margin: "20px 0",
+                    color: "#000",
+                  }}
+                >
                   New User? Please Register
                 </Button>
               </NavLink>
@@ -92,13 +118,18 @@ const Login = () => {
               )}
               {authError && <Alert severity="error">{authError}</Alert>}
             </form>
-            <p className={field}>--------------------------</p>
             <Button
               onClick={handleGoogleSignIn}
-              className={field}
-              variant="contained"
+              style={{
+                outline: "2px solid #EA001E",
+                width: "100%",
+                padding: "5px 0",
+                color: "#EA001E",
+                fontSize: "16px",
+                fontWeight: "500",
+              }}
             >
-              Google Sign In
+              <FaGoogle style={{ marginRight: "10px" }} /> SIGN IN WITH GOOGLE
             </Button>
           </Box>
         </Box>

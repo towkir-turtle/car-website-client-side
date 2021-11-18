@@ -51,20 +51,21 @@ const Register = () => {
       width: "100%",
       marginBottom: "20px",
     },
+    title: {
+      fontFamily: "Genos",
+      fontSize: "45px",
+      color: "#EA001E",
+      textAlign: "center",
+      marginBottom: "30px",
+    },
   });
-  const { container, register, field } = useStyles();
+  const { container, register, field, title } = useStyles();
   return (
     <Box>
       <Container>
         <Box className={container}>
           <Box className={register}>
-            <Typography
-              style={{ textAlign: "center" }}
-              variant="body1"
-              gutterBotttom
-            >
-              Register
-            </Typography>
+            <h2 className={title}>Please Register</h2>
 
             {!isLoading && (
               <form onSubmit={handleLoginSubmit}>
@@ -74,7 +75,7 @@ const Register = () => {
                   label="Your Name"
                   name="name"
                   onBlur={handleOnBlur}
-                  variant="standard"
+                  style={{ width: "100%", marginBottom: "20px" }}
                 />
                 <TextField
                   className={field}
@@ -83,7 +84,7 @@ const Register = () => {
                   label="Your Email"
                   name="email"
                   onBlur={handleOnBlur}
-                  variant="standard"
+                  style={{ width: "100%", marginBottom: "20px" }}
                 />
                 <TextField
                   className={field}
@@ -92,7 +93,7 @@ const Register = () => {
                   label="Your Password"
                   name="password"
                   onBlur={handleOnBlur}
-                  variant="standard"
+                  style={{ width: "100%", marginBottom: "20px" }}
                 />
                 <TextField
                   className={field}
@@ -101,17 +102,37 @@ const Register = () => {
                   label="Confirm Password"
                   name="passwordConfirm"
                   onBlur={handleOnBlur}
-                  variant="standard"
+                  style={{ width: "100%", marginBottom: "20px" }}
                 />
-                <Button className={field} variant="contained" type="submit">
+                <Button
+                  style={{
+                    width: "100%",
+                    backgroundColor: "#EA001E",
+                    padding: "10px 0",
+                    fontSize: "16px",
+                    fontWeight: "500",
+                    color: "#fff",
+                  }}
+                  type="submit"
+                >
                   Register
                 </Button>
                 <NavLink
-                  className={field}
-                  style={{ textDecoration: "none" }}
+                  style={{
+                    color: "#000",
+                    textDecoration: "none",
+                    textAlign: "center",
+                  }}
                   to="/login"
                 >
-                  <Button type="text" color="inherit">
+                  <Button
+                    type="text"
+                    style={{
+                      textAlign: "center",
+                      margin: "20px 0",
+                      color: "#000",
+                    }}
+                  >
                     Already Registerd? Please Login
                   </Button>
                 </NavLink>

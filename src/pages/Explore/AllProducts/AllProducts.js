@@ -1,4 +1,5 @@
 import { Container, Grid } from "@mui/material";
+import { makeStyles } from "@mui/styles";
 import { Box } from "@mui/system";
 import React, { useEffect, useState } from "react";
 import SingleProduct from "../SingleProduct/SingleProduct";
@@ -10,10 +11,25 @@ const AllProducts = () => {
       .then((res) => res.json())
       .then((data) => setProducts(data));
   }, []);
+
+  const useStyles = makeStyles({
+    productContainer: {
+      margin: "0 0",
+    },
+    title: {
+      fontFamily: "Genos",
+      fontSize: "45px",
+      color: "#EA001E",
+      textAlign: "center",
+      marginBottom: "50px",
+    },
+  });
+  const { productContainer, title } = useStyles();
+
   return (
-    <Box>
+    <Box className={productContainer}>
       <Container>
-        <h2>All Cars</h2>
+        <h2 className={title}>Our Cars</h2>
         <Grid container spacing={2}>
           {products.map((product) => (
             <SingleProduct key={product?.id} product={product}></SingleProduct>

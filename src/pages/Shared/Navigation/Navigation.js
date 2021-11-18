@@ -4,9 +4,9 @@ import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
-import logo from "../../../images/logo_01.png";
+import logo from "../../../images/logo_02.png";
 import { Link } from "react-router-dom";
-import { Button, Typography, useTheme } from "@mui/material";
+import { Button, Container, Typography, useTheme } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import Drawer from "@mui/material/Drawer";
 import List from "@mui/material/List";
@@ -20,12 +20,12 @@ const Navigation = () => {
 
   const useStyle = makeStyles({
     navItem: {
-      color: "#fff",
+      color: "#000",
       textDecoration: "none !important",
     },
     navIcon: {
       [theme.breakpoints.up("sm")]: {
-        display: "none",
+        display: "none !important",
       },
     },
     navItemContainer: {
@@ -65,20 +65,45 @@ const Navigation = () => {
             </Link>
           </ListItemText>
         </ListItem>
+        <Divider />
+        <ListItem button>
+          <ListItemText>
+            {user?.email && (
+              <Link className={mobileNavItem} to="/dashboard">
+                Dashboard
+              </Link>
+            )}
+          </ListItemText>
+        </ListItem>
+        <Divider />
+        <ListItem button>
+          <ListItemText>
+            {user?.email ? (
+              <Button style={{ color: "#000" }} onClick={logOut}>
+                Logout
+              </Button>
+            ) : (
+              <Link className={mobileNavItem} to="/login">
+                Login
+              </Link>
+            )}
+          </ListItemText>
+        </ListItem>
+        <Divider />
       </List>
     </Box>
   );
   return (
     <>
       <Box sx={{ flexGrow: 1 }}>
-        <AppBar position="static">
+        <AppBar position="static" style={{ backgroundColor: "#fff" }}>
           <Toolbar>
             <IconButton
               size="large"
               edge="start"
               color="inherit"
               aria-label="menu"
-              sx={{ mr: 2 }}
+              sx={{ mr: 2, color: "#000" }}
               className={navIcon}
               onClick={() => setState(true)}
             >
@@ -108,7 +133,7 @@ const Navigation = () => {
                 </Link>
               )}
               {user?.email ? (
-                <Button onClick={logOut} color="inherit">
+                <Button style={{ color: "#000" }} onClick={logOut}>
                   Logout
                 </Button>
               ) : (

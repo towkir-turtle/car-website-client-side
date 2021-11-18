@@ -21,6 +21,7 @@ import AddProduct from "../AddProduct/AddProduct";
 import ManageProducts from "../ManageProducts/ManageProducts";
 import MakeAdmin from "../MakeAdmin/MakeAdmin";
 import useAuth from "../../hooks/useAuth";
+import { makeStyles } from "@mui/styles";
 
 const drawerWidth = 240;
 
@@ -35,13 +36,21 @@ function Dashboard(props) {
     setMobileOpen(!mobileOpen);
   };
 
+  const useStyles = makeStyles({
+    item: {
+      textDecoration: "none",
+      color: "inherit",
+    },
+  });
+  const { item } = useStyles();
+
   const drawer = (
     <div>
       <Toolbar />
       <Divider />
       <List>
         <ListItem>
-          <Link to="/">
+          <Link className={item} to="/">
             <Button color="inherit">Home</Button>
           </Link>
         </ListItem>
@@ -49,25 +58,25 @@ function Dashboard(props) {
         {admin ? (
           <Box>
             <ListItem>
-              <Link to={`${url}/manageAllOrders`}>
+              <Link className={item} to={`${url}/manageAllOrders`}>
                 <Button color="inherit">Manage All Orders</Button>
               </Link>
             </ListItem>
             <Divider />
             <ListItem>
-              <Link to={`${url}/addProduct`}>
+              <Link className={item} to={`${url}/addProduct`}>
                 <Button color="inherit">Add Product</Button>
               </Link>
             </ListItem>
             <Divider />
             <ListItem>
-              <Link to={`${url}/manageProducts`}>
+              <Link className={item} to={`${url}/manageProducts`}>
                 <Button color="inherit">Manage Products</Button>
               </Link>
             </ListItem>
             <Divider />
             <ListItem>
-              <Link to={`${url}/makeAdmin`}>
+              <Link className={item} to={`${url}/makeAdmin`}>
                 <Button color="inherit">Make Admin</Button>
               </Link>
             </ListItem>
@@ -76,19 +85,19 @@ function Dashboard(props) {
         ) : (
           <Box>
             <ListItem>
-              <Link to={`${url}/pay`}>
+              <Link className={item} to={`${url}/pay`}>
                 <Button color="inherit">Pay</Button>
               </Link>
             </ListItem>
             <Divider />
             <ListItem>
-              <Link to={`${url}/myOrders`}>
+              <Link className={item} to={`${url}/myOrders`}>
                 <Button color="inherit">My Orders</Button>
               </Link>
             </ListItem>
             <Divider />
             <ListItem>
-              <Link to={`${url}/review`}>
+              <Link className={item} to={`${url}/review`}>
                 <Button color="inherit">Review</Button>
               </Link>
             </ListItem>

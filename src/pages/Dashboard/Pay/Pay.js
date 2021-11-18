@@ -3,7 +3,11 @@ import React from "react";
 const Pay = () => {
   return (
     <div>
-      <h2>Payment system coming soon!</h2>
+      <h2
+        style={{ fontFamily: "Genos", fontSize: "30px", textAlign: "center" }}
+      >
+        Payment system coming soon!
+      </h2>
     </div>
   );
 };

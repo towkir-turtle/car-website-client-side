@@ -7,14 +7,27 @@ import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import logo from "../../../images/logo_02.png";
 import { Box } from "@mui/system";
+import { makeStyles } from "@mui/styles";
 
 const Footer = () => {
+  const useStyles = makeStyles({
+    footerContainer: {
+      padding: "50px 0",
+      fontFamily: "Roboto",
+      backgroundColor: "#f2f2f2",
+    },
+    title: {
+      fontFamily: "Genos",
+      fontSize: "31px",
+    },
+  });
+  const { footerContainer, title } = useStyles();
   return (
-    <Box>
+    <Box className={footerContainer}>
       <Container>
         <Grid container spacing={4} style={{ textAlign: "left" }}>
           <Grid item sm={12} md={4}>
-            <img style={{ marginTop: "20px" }} src={logo} alt="" />
+            <img style={{ marginTop: "25px" }} src={logo} alt="" />
             <p>
               Cras sit amet mi non orci pretium consectetur. Donec iaculis ante
               ac sollicitudin luctus. Phasellus ut lacus lacus. Phasellus
@@ -30,7 +43,7 @@ const Footer = () => {
           </Grid>
 
           <Grid item sm={12} md={4}>
-            <h2>Contact Us</h2>
+            <h2 className={title}>Contact Us</h2>
             <p>
               <p style={{ fontWeight: "bold" }}>
                 <LocationOnIcon
@@ -60,7 +73,7 @@ const Footer = () => {
           </Grid>
 
           <Grid item sm={12} md={4}>
-            <h2>Information</h2>
+            <h2 className={title}>Information</h2>
             <p>
               <ArrowForwardIosIcon fontSize="5px" />
               Find a Car for Rent in the Nearest Location

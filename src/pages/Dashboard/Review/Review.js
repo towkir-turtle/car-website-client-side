@@ -39,7 +39,15 @@ const Review = () => {
     <Box className={reviewContainer}>
       <Container>
         <Box>
-          <h2>Add A Review</h2>
+          <h2
+            style={{
+              fontFamily: "Genos",
+              fontSize: "40px",
+              textAlign: "center",
+            }}
+          >
+            Add A Review
+          </h2>
           <form className="booking-form" onSubmit={handleSubmit(onSubmit)}>
             <input
               className={input}

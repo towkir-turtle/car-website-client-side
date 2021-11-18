@@ -37,37 +37,49 @@ const ProductDetails = () => {
   const useStyles = makeStyles({
     container: {
       margin: "50px 0",
+      fontFamily: "Roboto",
+    },
+    title: {
+      fontFamily: "Genos",
+      fontSize: "45px",
+      color: "#EA001E",
+      textAlign: "center",
+      marginBottom: "50px",
     },
     productDetails: {
       display: "flex",
       justifyContent: "center",
       alignItems: "center",
     },
+    productName: {
+      fontSize: "25px",
+    },
     input: {
-      width: "80%",
+      width: "100%",
       padding: " 10px 20px",
       margin: "10px 0",
       fontSize: "18px",
     },
   });
 
-  const { container, productDetails, input } = useStyles();
+  const { container, title, productDetails, productName, input } = useStyles();
 
   return (
     <Container className={container}>
+      <h2 className={title}>Place Order</h2>
       <Grid container spacing={2}>
-        <Grid item sm={12} md={6}>
+        <Grid item sm={12} md={7}>
           <Box className={productDetails}>
             <Box>
-              <img src={singleProduct?.img} alt="" />
-              <h4>{singleProduct?.name}</h4>
+              <img style={{ width: "80%" }} src={singleProduct?.img} alt="" />
+              <h3 className={productName}>{singleProduct?.name}</h3>
               <p>{singleProduct?.description}</p>
-              <p>{singleProduct?.price}</p>
+              <p>Price: ${singleProduct?.price}</p>
             </Box>
           </Box>
         </Grid>
 
-        <Grid item sm={12} md={6}>
+        <Grid item sm={12} md={5}>
           <form onSubmit={handleSubmit(onSubmit)}>
             <input
               className={input}
@@ -104,7 +116,7 @@ const ProductDetails = () => {
             <br />
             <input
               style={{
-                width: "87.5%",
+                width: "110%",
                 padding: " 10px 0",
                 margin: "10px 0",
                 fontSize: "18px",

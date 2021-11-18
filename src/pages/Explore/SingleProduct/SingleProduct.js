@@ -15,17 +15,40 @@ const SingleProduct = ({ product }) => {
 
   const useStyle = makeStyles({
     cardContent: {
+      fontFamily: "Roboto",
       textAlign: "center",
     },
     detailsBtn: {
+      fontFamily: "Genos",
       textDecoration: "none",
-      color: "#fff",
+      borderRadius: "5px",
+      fontSize: "18px",
+      background: "#EA001E",
+      color: "white",
+      padding: "5px 20px",
+    },
+    productName: {
+      fontSize: "20px",
+    },
+    productDescription: {
+      fontSize: "16px",
+      color: "#333",
+    },
+    productPrice: {
+      fontSize: "18px",
+      color: "#333",
     },
   });
-  const { cardContent, detailsBtn } = useStyle();
+  const {
+    cardContent,
+    detailsBtn,
+    productName,
+    productDescription,
+    productPrice,
+  } = useStyle();
 
   return (
-    <Grid item sm={12} md={4}>
+    <Grid xs={12} sm={6} md={4}>
       <Card sx={{ maxWidth: 355, marginBottom: 6 }}>
         <CardMedia
           component="img"
@@ -34,16 +57,10 @@ const SingleProduct = ({ product }) => {
           alt="green iguana"
         />
         <CardContent className={cardContent}>
-          <Typography gutterBottom variant="h5" component="div">
-            {name}
-          </Typography>
-          <Typography variant="body2" color="text.secondary">
-            {description}
-          </Typography>
-          <Typography gutterBottom variant="subtitle1" component="div">
-            Price: {price} BDT
-          </Typography>
-          <Button variant="contained" size="small">
+          <h3 className={productName}>{name}</h3>
+          <p className={productDescription}>{description}</p>
+          <p className={productPrice}>Price: {price} BDT</p>
+          <Button>
             <Link className={detailsBtn} to={`/productDetails/${id}`}>
               Purchase
             </Link>

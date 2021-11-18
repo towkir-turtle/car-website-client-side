@@ -16,11 +16,12 @@ const Products = () => {
 
   const useStyles = makeStyles({
     productContainer: {
-      margin: "100px 0",
+      margin: "50px 0",
     },
     title: {
       fontFamily: "Genos",
       fontSize: "45px",
+      color: "#EA001E",
       textAlign: "center",
       marginBottom: "50px",
     },

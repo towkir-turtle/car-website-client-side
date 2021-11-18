@@ -30,17 +30,34 @@ const MakeAdmin = () => {
 
   return (
     <div>
-      <h2>Make A Admin</h2>
-      <form onSubmit={handleAdminSubmit}>
+      <h2
+        style={{ fontFamily: "Genos", fontSize: "40px", textAlign: "center" }}
+      >
+        Make A Admin
+      </h2>
+      <form style={{ textAlign: "center" }} onSubmit={handleAdminSubmit}>
         <TextField
+          style={{
+            fontFamily: "Genos",
+            width: "40%",
+            fontSize: "25px",
+            marginRight: "10px",
+          }}
           type="email"
-          label="email"
+          label="Email"
           variant="standard"
           onBlur={handleOnBlur}
         />
-        <br />
-        <br />
-        <Button type="submit" variant="contained">
+        <Button
+          type="submit"
+          style={{
+            fontFamily: "Genos",
+            fontSize: "20px",
+            background: "#EA001E",
+            color: "white",
+            padding: "5px 30px",
+          }}
+        >
           Make Admin
         </Button>
       </form>

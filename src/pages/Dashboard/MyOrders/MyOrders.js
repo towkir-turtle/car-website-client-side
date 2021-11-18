@@ -37,12 +37,16 @@ const MyOrders = () => {
 
   return (
     <TableContainer component={Paper}>
-      <h2>My Orders</h2>
+      <h2
+        style={{ fontFamily: "Genos", fontSize: "40px", textAlign: "center" }}
+      >
+        My Orders
+      </h2>
       <Table sx={{}} aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell align="right">Product Name</TableCell>
-            <TableCell align="right">Product Id</TableCell>
+            <TableCell align="left">Name</TableCell>
+            <TableCell align="left">Product</TableCell>
             <TableCell align="right">Price</TableCell>
             <TableCell align="right">Action</TableCell>
           </TableRow>
@@ -54,11 +58,11 @@ const MyOrders = () => {
               sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
             >
               <TableCell component="th" scope="row">
-                {myOrder?.orderDetails?.name}
+                {myOrder?.name}
               </TableCell>
-              <TableCell align="right">{myOrder?.orderDetails?.id}</TableCell>
+              <TableCell align="left">{myOrder?.orderDetails?.name}</TableCell>
               <TableCell align="right">
-                {myOrder?.orderDetails?.price}
+                ${myOrder?.orderDetails?.price}
               </TableCell>
               <TableCell align="right">
                 <Button

@@ -2,14 +2,6 @@ import React from "react";
 import { Button, Container, Grid, Typography } from "@mui/material";
 import banner from "../../../images/banner.png";
 import { Box } from "@mui/system";
-import bg from "../../../images/home-bg.jpg";
-
-const homeBanner = {
-  background: `url(${bg})`,
-  backgrounPosition: "left center",
-  backgroundColor: "rgba(0, 0, 0, 0.3)",
-  backgroundBlendMode: "darken, luminosity",
-};
 
 const Banner = () => {
   return (
