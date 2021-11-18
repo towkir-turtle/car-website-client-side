@@ -63,6 +63,13 @@ const Review = () => {
               placeholder="date"
             />
             <br />
+            <input
+              className={input}
+              type="number"
+              {...register("ratings", { min: 0, max: 5 })}
+              placeholder="Ratings"
+            />
+            <br />
 
             <input
               className={input}

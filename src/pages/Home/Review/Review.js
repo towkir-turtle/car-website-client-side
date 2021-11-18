@@ -1,6 +1,8 @@
 import React from "react";
 import { Grid } from "@mui/material";
 import Rating from "@mui/material/Rating";
+import StarRatingComponent from "react-star-rating-component";
+import { FaStar } from "react-icons/fa";
 
 const Review = ({ review }) => {
   const { img, date, description } = review;
@@ -14,11 +16,17 @@ const Review = ({ review }) => {
       <p style={{ fontFamily: "Roboto" }}>
         <small>{date}</small>
       </p>
-      <Rating
-        name="half-rating-read"
-        defaultValue={4.5}
-        precision={0.5}
-        readOnly
+      <StarRatingComponent
+        name="rate"
+        size={20}
+        editing={false}
+        renderStarIcon={() => (
+          <span>
+            <FaStar />
+          </span>
+        )}
+        starCount={5}
+        value={parseFloat(review.ratings)}
       />
       <p style={{ fontFamily: "Roboto" }}>{description}</p>
     </Grid>
